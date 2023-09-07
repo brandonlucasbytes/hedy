@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Sample Character Name",
+        "psychology": "familial wounds, war trauma",
+        "motivation": "fix something complex, business empire"
+    },
+    {
+        "id": 2,
+        "name": "Sample Character Name something else",
+        "psychology": "familial trauma, war wounds",
+        "motivation": "break something simple"
+    },
+    {
+        "id": 3,
+        "name": "Sample Character Name something",
+        "psychology": "burn wounds, familial war",
+        "motivation": "rehire maid"
+    }
+]

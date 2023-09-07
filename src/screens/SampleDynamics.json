@@ -1,0 +1,91 @@
+[
+    {
+        "id": 1,
+        "relationship": "Family",
+        "name": "Sample Character Name",
+        "psychology": "familial wounds, war trauma",
+        "motivation": "fix something complex, business empire",
+        "characters": [{
+            "id": 1,
+            "name": "Sample Character Name something",
+            "psychology": "wants to prove himself to the world",
+            "motivation": "undo mistakes"
+        }, {
+            "id": 2,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        },
+        {
+            "id": 3,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        }]
+    },
+    {
+        "id": 2,
+        "relationship": "Friends",
+        "name": "Sample Character Name something else",
+        "psychology": "familial trauma, war wounds",
+        "motivation": "break something simple",
+        "characters": [{
+            "id": 1,
+            "name": "Sample Character Name something",
+            "psychology": "wants to prove himself to the world",
+            "motivation": "undo mistakes"
+        }, {
+            "id": 2,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        },
+        {
+            "id": 3,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        }]
+    },
+    {
+        "id": 3,
+        "relationship": "Couple",
+        "name": "Sample Character Name something",
+        "psychology": "burn wounds, familial war",
+        "motivation": "rehire maid",
+        "characters": [{
+            "id": 1,
+            "name": "Sample Character Name something",
+            "psychology": "wants to prove himself to the world",
+            "motivation": "undo mistakes"
+        }, {
+            "id": 2,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        },
+        {
+            "id": 3,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        }]
+    },
+    {
+        "id": 4,
+        "relationship": "Coworkers",
+        "inner conflicts": "etc",
+        "external conflicts": "etc",
+        "characters": [{
+            "id": 1,
+            "name": "Sample Character Name something",
+            "psychology": "wants to prove himself to the world",
+            "motivation": "undo mistakes"
+        }, {
+            "id": 2,
+            "name": "Sample Character Name something's coworker",
+            "psychology": "wants to prove himself to his coworkers, at all costs",
+            "motivation": "prove himself"
+        }]
+    }
+]
