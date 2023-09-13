@@ -27,9 +27,44 @@ export default function DynamicType({ updateCurrentState }) {
             <p>Concept: select from three side-by-side (static) options
                 Make a selection, save selection (maybe to state) -done
             </p>
-            <button id="solo" onClick={() => dynamicTypeHandler("solo")}>Solo</button>
-            <button id="pair" onClick={() => dynamicTypeHandler("pair")}>Pair</button>
-            <button id="group" onClick={() => dynamicTypeHandler("group")}>Group</button>
+            <div className="card-container" style={{display: "flex", justifyContent: "space-evenly"}}>
+                <div 
+                    id="solo" 
+                    style={{
+                        display: "grid", 
+                        width: "100%", 
+                        backgroundColor: "tan",
+                        height: "50vh"
+                    }}
+                >
+                    <img alt="forgot the img"></img>
+                    <button onClick={() => dynamicTypeHandler("solo")}>Solo Card</button>
+                </div>
+                <div 
+                    id="pair" 
+                    style={{
+                        display: "grid", 
+                        width: "100%", 
+                        backgroundColor: "teal",
+                        height: "50vh"
+                    }}
+                >
+                    <img alt="forgot the img"></img>
+                    <button onClick={() => dynamicTypeHandler("pair")}>Pair Card</button>
+                </div>
+                <div 
+                    id="group" 
+                    style={{
+                        display: "grid", 
+                        width: "100%", 
+                        backgroundColor: "tomato",
+                        height: "50vh"
+                    }}
+                >
+                    <img alt="forgot the img"></img>
+                    <button onClick={() => dynamicTypeHandler("group")}>Group Card</button>
+                </div>
+            </div>
         </div>
     )
 }
