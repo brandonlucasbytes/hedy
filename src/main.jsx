@@ -7,11 +7,11 @@ import {
   Route,
 } from 'react-router-dom'
 import App from './App.jsx'
-import Home from './screens/Home.jsx'
-import Hedy from './screens/Hedy.jsx'
-import Features from './screens/Features.jsx'
-import Browse from './screens/Browse.jsx'
-import Contact from './screens/Contact.jsx'
+import Home from './pages/Home.jsx'
+import Hedy from './pages/Hedy.jsx'
+import Features from './pages/Features.jsx'
+import Browse from './pages/Browse.jsx'
+import Contact from './pages/Contact.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(

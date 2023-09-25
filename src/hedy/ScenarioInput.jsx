@@ -1,8 +1,20 @@
 export default function ScenarioInput({updateCurrentState}) {
-    function userSubmitHandler(){
+    async function submitHandler(){
         // set user input to variable and send request
         // note: replace current loading jsx with an actual loader
         updateCurrentState("loading");
+
+        const response = await fetch("http://localhost:5000/api/ai", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "message": "hello from the frontend"
+            })
+        }).then(res => res.json());
+
+        console.log(response);
 
         setTimeout(() => {
             updateCurrentState("displayScenario");
@@ -22,7 +34,7 @@ export default function ScenarioInput({updateCurrentState}) {
             <input
                 defaultValue="Scenario" />
             <button
-                onClick={() => userSubmitHandler()}>Submit</button>
+                onClick={() => submitHandler()}>Submit</button>
         </div>
     )
 }
