@@ -1,13 +1,9 @@
 export default function Contact() {
-  
-  return (
-    <>
-      <header>
-        <h1>Contact heading</h1>
-      </header>
 
-      <main>
-        <h2>Contact Form heading</h2>
+  return (
+    <main className="contact">
+      <h2>Contact Form</h2>
+      <div className="form-container">
         <form>
           <input placeholder="Name"></input>
           <input placeholder="Email"></input>
@@ -15,7 +11,7 @@ export default function Contact() {
           <textarea default="Message"></textarea>
           <button>Send</button>
         </form>
-      </main>
-    </>
+      </div>
+    </main>
   )
 }

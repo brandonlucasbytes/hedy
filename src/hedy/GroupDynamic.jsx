@@ -1,6 +1,12 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-export default function GroupDynamic({updateCurrentState}) {
+GroupDynamic.propTypes = {
+    updateCurrentState: PropTypes.func,
+    groupCards: PropTypes.array,
+}
+
+export default function GroupDynamic({ updateCurrentState, groupCards }) {
     const [groupDynamicCard, setGroupDynamicCard] = useState(null); // pair/group
 
     function groupDynamicCardHandler(selectedGroupDynamicCard){
@@ -15,6 +21,7 @@ export default function GroupDynamic({updateCurrentState}) {
     }
 
     return (
+        <>
         <div className="group-dynamic-select-screen">
             <h2>Machine Screen 2 - Group</h2>
             <p>Concept: fetch groups from backend, get a deck of cards, select a card (onClick)
@@ -34,5 +41,13 @@ export default function GroupDynamic({updateCurrentState}) {
                 id="#"
                 onClick={() => groupDynamicCardHandler("#")}>[Group Dynamic #]</div>
         </div>
+        {groupCards.length > 0 && groupCards.map((card) => {
+            return (
+                <div key={card._id}>
+                    <p>{card.conflicts}</p>
+                </div>
+            )
+        })}
+        </>
     )
 }

@@ -1,6 +1,12 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-export default function PairDynamic({updateCurrentState}) {
+PairDynamic.propTypes = {
+    updateCurrentState: PropTypes.func,
+    pairCards: PropTypes.array,
+}
+
+export default function PairDynamic({ updateCurrentState, pairCards }) {
     const [pairDynamicCard, setPairDynamicCard] = useState(null); // pair/group
 
     function pairDynamicCardHandler(selectedPairDynamicCard){
@@ -15,6 +21,7 @@ export default function PairDynamic({updateCurrentState}) {
     }
 
     return (
+        <>
         <div className="pair-dynamic-select-screen">
             <h2>Machine Screen 2 - Pair</h2>
             <p>Concept: fetch pairs from backend, get a deck of cards, select a card (onClick)
@@ -34,5 +41,13 @@ export default function PairDynamic({updateCurrentState}) {
                 id="#"
                 onClick={() => pairDynamicCardHandler("#")}>[Pair Dynamic #]</div>
         </div>
+        {pairCards.length > 0 && pairCards.map((card) => {
+            return (
+                <div key={card._id}>
+                    <p>{card.conflicts}</p>
+                </div>
+            )
+        })}
+        </>
     )
 }

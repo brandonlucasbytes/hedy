@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react";
 import HedyMachine from "../hedy/HedyMachine.jsx";
 
+// route to backend
 const uri = "http://localhost:5000/api/dynamics";
 
 function Hedy() {
+  /* 
+    all hedyThreads populate the sidebar,
+    the currentThread is displayed in the machine
+  **/
   const [hedyThreads, setHedyThreads] = useState([]);
   const [currentThread, setCurrentThread] = useState({});
-  const currentThreadData = {
+  const [currentThreadData, setCurrentThreadData] = useState({
     "dynamicType": "",
     "card": {},
     "messageHistory": []
-  };
-  
+  });
+
+  // load all cards on the page level, pass down to threads as needed
   const [soloCards, setSoloCards] = useState([]);
   const [pairCards, setPairCards] = useState([]);
   const [groupCards, setGroupCards] = useState([]);
   const allCards = [soloCards, pairCards, groupCards];
 
-  const [soloImages, setSoloImages] = useState([]);
-  const [pairImages, setPairImages] = useState([]);
-  const [groupImages, setGroupImages] = useState([]);
+  // dynamically import all images
+  const [images, setImages] = useState([]);
 
   // Get all cards from database
   useEffect(() => {
@@ -38,7 +43,6 @@ function Hedy() {
     fetchCards("pairs", setPairCards);
     fetchCards("groups", setGroupCards);
   }, []);
-  // const array = [{id: 12345, content: "image1"}, {id: 8495, content: "image2"}, {id: 223409, content: "image3"}];
 
   return (
     <>
@@ -46,8 +50,8 @@ function Hedy() {
 
       <aside className="hedy-thread-select-sidebar">thread-select-sidebar</aside>
 
-      <HedyMachine 
-        allCards={allCards} 
+      <HedyMachine
+        allCards={allCards}
         currentThreadData={currentThreadData}
       />
     </>

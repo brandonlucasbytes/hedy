@@ -1,99 +1,85 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import DynamicType from "./DynamicType.jsx";
-import SoloDynamic from "./SoloDynamic.jsx";
-import PairDynamic from "./PairDynamic.jsx";
-import GroupDynamic from "./GroupDynamic.jsx";
-import ScenarioInput from "./ScenarioInput.jsx";
-import DisplayScenario from "./DisplayScenario.jsx";
-import TestComponents from "./TestComponents.jsx";
 
 HedyMachine.propTypes = {
     allCards: PropTypes.array,
     currentThreadData: PropTypes.object
 }
 
+const ai_uri = "http://localhost:5000/api/ai";
+
 export default function HedyMachine({ allCards, currentThreadData }) {
-    var userSubmit;
-    const [currentState, setCurrentState] = useState("");
-    const [threadResponses, setThreadResponses] = useState([]);
+    const [input, setInput] = useState("");
+    const [response, setResponse] = useState("");
+    const [messages, setMessages] = useState([]);
 
-    useEffect(() => {
-        if (threadResponses.length === 0) {
-            updateCurrentState("dynamicType");
-        }
-        else {
-            updateCurrentState("displayScenario");
-        }
-    }, [])
+    function handleInput(e){
+        setInput(e.target.value);
+    }
 
-    function updateCurrentState(state) {
-        setCurrentState(state);
+    async function handleSubmit(e) {
+        e.preventDefault();
+        /* 
+        const abort = new AbortController();
+        const signal = abort.signal;
+        **/
+        let inputText = input;
+
+        const prompt = { 
+            thisDynamic: "dynamic", 
+            thisCard: "card", 
+            messages: messages,
+            role: "user",
+            content: inputText
+        };
+
+        console.log(prompt);
+
+        try {
+            const res = await fetch(ai_uri, {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(prompt)
+            });
+            const data = await res.json();
+            setResponse(data.content);
+            setMessages(prev => [...prev, {role: "user", content: inputText}]);
+            setMessages(prev => [...prev, {role: "assistant", content: data.content}]);
+
+            console.log(data.content);
+        }
+        catch(error) {
+            console.log(error);
+        }
     }
 
     return (
         <>
-            {allCards[0].length > 0 && allCards[0].map((card) => {
-                return (
-                    <div key={card._id}>
-                        <p>{card.name}</p>
-                    </div>
-                )
-            })}
-
-            {allCards[1].length > 0 && allCards[1].map((card1) => {
-                return (
-                    <div key={card1._id}>
-                        <p>{card1.conflicts}</p>
-                    </div>
-                )
-            })}
-
-            {allCards[2].length > 0 && allCards[2].map((card2) => {
-                return (
-                    <div key={card2._id}>
-                        <p>{card2.conflicts}</p>
-                    </div>
-                )
-            })}
-
             <div className="hedy-thread-container">
-                <p>
-                    Concept: This container walks the user through each screen of the Hedy machine.
-                    - Stack to keep track of each screen choice.
-                    - Appending choice to chatGPT response where appropriate.
-                </p>
-                <button onClick={() => { console.log(currentState) }}>Check State</button>
-
-                <br />
-                {/** Dynamic */}
-                {currentState === "dynamicType" &&
-                    <DynamicType updateCurrentState={updateCurrentState} />
-                }
-
-                {currentState === "solo" &&
-                    <SoloDynamic updateCurrentState={updateCurrentState} />
-                }
-                {currentState === "pair" &&
-                    <PairDynamic updateCurrentState={updateCurrentState} />
-                }
-                {currentState === "group" &&
-                    <GroupDynamic updateCurrentState={updateCurrentState} />
-                }
-
-                <ScenarioInput updateCurrentState={updateCurrentState} />
-
-                {currentState === "displayScenario" &&
-                    <DisplayScenario updateCurrentState={updateCurrentState} />
-                }
-
-                {currentState === "loading" &&
-                    <div className="loading">
-                        <h2>Machine Screen - Loading</h2>
-                        <p>Concept: loading and conditional rendering</p>
-                        <p>loading component...</p>
-                    </div>
-                }
+                <div className="interactionMessages">
+                    {messages.length > 0 && messages.map((message, index) => {
+                        return (
+                            <div key={index}>
+                                <p>{message.role}</p>
+                                <p>{message.content}</p>
+                                <br />
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className="userInput">
+                    <h2>User Input</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label>Prompt</label>
+                        <input
+                            type="text"
+                            required
+                            value={input}
+                            onChange={handleInput}
+                        />
+                        <button>Submit user input</button>
+                    </form>
+                </div>
             </div>
         </>
     )

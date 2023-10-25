@@ -7,20 +7,22 @@ import {
   Route,
 } from 'react-router-dom'
 import App from './App.jsx'
-import Home from './pages/Home.jsx'
+import Home from './pages/home/Home.jsx'
 import Hedy from './pages/Hedy.jsx'
-import Features from './pages/Features.jsx'
-import Browse from './pages/Browse.jsx'
-import Contact from './pages/Contact.jsx'
+import FAQ from './pages/faq/FAQ.jsx'
+import Browse from './pages/browse/Browse.jsx'
+import Contact from './pages/contact/Contact.jsx'
+import NotFound from './NotFound.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
       <Route path="hedy" element={<Hedy />} />
-      <Route path="features" element={<Features />} />
+      <Route path="faq" element={<FAQ />} />
       <Route path="browse" element={<Browse />} />
       <Route path="contact" element={<Contact />} />
+      <Route path='*' element={<NotFound />}/>
     </Route>
   )
 )
