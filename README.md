@@ -8,7 +8,7 @@ Hedy is the next step in AI. With guided and defined social dynamics, users can 
 2. **Choose your card.**
 3. **Interact.**
 
-## Technical
+## Technical Details
 
 - **Architecture:** Designed with a single-page architecture for fast page loads.
 - **Front-end:** A responsive React front-end using fully customized Material UI components.
