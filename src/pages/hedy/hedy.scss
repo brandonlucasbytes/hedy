@@ -1,0 +1,130 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.hedy {
+    background-color: black;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 60vw;
+
+
+    .hedy-sidebar-container {
+        position: relative;
+        background-color: transparent;
+        max-height: 100svh;
+        color: white;
+    }
+
+    .hedy-sidebar-container.closed {
+        transform: translateX(-20vw);
+    }
+
+}
+
+.hedy.sidebar-closed {
+    background-color: black;
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.1vw 99.9vw;
+}
+
+.chevron-wrapper {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 41vw;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    opacity: calc(50%);
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0.2);
+
+    transition: transform 0.5s;
+}
+
+.chevron-wrapper.closed {
+    position: absolute;
+    z-index: 10;
+    opacity: calc(100%);
+    cursor: pointer;
+
+    transform: translateX(-40vw);
+}
+
+.chevron-wrapper::before {
+    content: "";
+    /* Non-breaking space to ensure the pseudo-element renders */
+    position: relative;
+    top: 10px;
+    /* Adjust the top position as needed */
+    right: 10px;
+    /* Adjust the right position as needed */
+    cursor: pointer;
+}
+
+@media screen and (min-width: 500px) {
+    .hedy {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 70vw;
+    }
+
+    .chevron-wrapper {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        left: 31vw;
+
+        transition: transform 1s;
+    }
+
+    .chevron-wrapper.closed {
+        position: absolute;
+        z-index: 10;
+
+        transform: translateX(-30vw);
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .actions {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .hedy {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 80vw;
+    }
+
+    .chevron-wrapper {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        left: 21vw;
+
+        transition: transform 1s;
+    }
+
+    .chevron-wrapper.closed {
+        position: absolute;
+        z-index: 10;
+
+        transform: translateX(-20vw);
+    }
+}

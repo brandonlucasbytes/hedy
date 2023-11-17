@@ -1,6 +1,12 @@
-.app {
+#root, body {
+    background-color: black;
+}
 
-    
+.app {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: black;
+
     nav {
 
         ul {
@@ -15,4 +21,20 @@
             }
         }
     }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
 }

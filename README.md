@@ -1,8 +1,13 @@
-# React + Vite
+Hedy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hedy is the next step in AI. With guided and defined social dynamics, users can explore the potential of AI to simulate realistic depictions of common dynamics that exist in everyday life.
 
-Currently, two official plugins are available:
+How does it work?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Choose your dynamic.
+2. Choose your card.
+3. Interact.
+
+Technical
+
+Hedy is designed with a single-page architecture for fast page loads. Hedy is developed with a responsive React front-end using fully customized Material UI components. The application is styled with Sass CSS for greater readability and maintainability.

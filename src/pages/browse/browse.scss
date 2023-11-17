@@ -1,0 +1,106 @@
+.browse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 4rem;
+    background-color: black;
+
+    .hero {
+        max-height: 25vh;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-size: clamp(2rem, 3rem + 1vw, 5rem);
+            color: lightgreen;
+        }
+    }
+
+    .sample-threads {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        color: white;
+
+        .sample-threads-title {
+            color: lightblue;
+            margin-block: 0;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: clamp(1rem, 1rem + 1vw, 2rem);
+        }
+
+        .sample-thread-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 1rem;
+            color: lightblue;
+
+            .sample-thread-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                position: relative;
+                width: 60vw;
+                height: 60vh;
+                border-radius: 1rem;
+
+                .sample-thread {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: scroll;
+                    border-radius: 1rem;
+                    line-height: 2rem;
+
+                    .user-message {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        background-color: hsla(120, 30%, 20%, 0.55);
+                    }
+
+                    p {
+                        width: 60%;
+                        color: white;
+                    }
+
+                    .assistant-message {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        background-color: hsla(120, 20%, 20%, 0.85);
+                    }
+                }
+
+                .actions {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    position: absolute;
+                    gap: 5px;
+                    bottom: 0;
+                    right: 0;
+                    padding: 10px;
+                }
+            }
+
+            .description {
+                max-width: 55vw;
+                color: white;
+
+                p{
+                    margin-inline: 0 auto;
+                }
+            }
+        }
+    }
+}

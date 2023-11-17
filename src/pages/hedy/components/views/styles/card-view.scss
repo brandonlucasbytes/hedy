@@ -1,0 +1,95 @@
+.card-view {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    h2 {
+        color: lightgreen;
+        font-size: clamp(16px, 20px, 22px);
+    }
+
+    .cards-container {
+        height: 80%;
+        overflow-y: auto;
+
+        .solo-cards,
+        .pair-cards,
+        .group-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            flex: 0 1 300px;
+            margin: 4%;
+            padding: 2%;
+        }
+
+        .card.selected {
+            box-shadow: 0px 0px 50px hsl(120, 73%, 80%);
+
+            &:hover {
+                box-shadow: 0px 0px 50px hsl(120, 73%, 80%);;
+            }
+        }
+
+        .MuiPaper-root {
+            background-color: black;
+            color: white;
+            border: 1px solid lightblue;
+            height: auto-fit;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0px 0px 50px lightblue;
+            }
+
+            .card-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+
+            p {
+                font-family: Arial;
+            }
+
+            .MuiPaper-elevation {
+                gap: 0;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            .card {
+                flex: 0 1 400px;
+                margin: 4%;
+                padding: 2%;
+            }
+        }
+
+        .sub-cards {
+            padding: 2%;
+        }
+    }
+
+    .change-views {
+        justify-content: space-evenly;
+
+        button {
+            width: 40%;
+        }
+    }
+}
